@@ -47,6 +47,12 @@ namespace PVOrderTracker
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            // Ensure database is created and migrated
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                db.Database.Migrate(); // Applies pending migrations
+            }
 
             app.Run();
         }
