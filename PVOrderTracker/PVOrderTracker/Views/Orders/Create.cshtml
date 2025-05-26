@@ -1,0 +1,53 @@
+﻿@model PVOrderTracker.Models.Order
+
+@{
+    ViewData["Title"] = "Add Order";
+}
+
+<div class="container mt-4">
+    <h2>Add New Order</h2>
+
+    <form asp-action="Create" method="post" class="row g-3">
+        <div class="col-md-6">
+            <label>Customer Name</label>
+            <input asp-for="CustomerName" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label>Address</label>
+            <input asp-for="Address" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label>Phone Number</label>
+            <input asp-for="PhoneNumber" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label>Watch Name</label>
+            <input asp-for="WatchName" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label>Tracking Number</label>
+            <input asp-for="TrackingNumber" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label>Tracking Courier</label>
+            <input asp-for="TrackingCourier" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label>Total Price</label>
+            <input asp-for="TotalPrice" type="number" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label>Status</label>
+            <select asp-for="Status" class="form-select" required>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+                <option value="Returned">Returned</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-success">Save</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
